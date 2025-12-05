@@ -5,6 +5,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+import TaskList from './components/TaskList.vue'; // Import komponen baru
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -24,4 +25,15 @@ createInertiaApp({
     progress: {
         color: '#4B5563',
     },
+    
+        import { createApp } from 'vue';
+    import TaskList from './components/TaskList.vue'; // Pastikan path ini benar
+    
+    const app = createApp({});
+    
+    // Pastikan Anda mendaftarkan komponen Anda dengan nama yang sama persis
+    app.component('task-list', TaskList); 
+    
+    // ID 'app' ini harus cocok dengan ID div di Blade
+    app.mount('#app');
 });

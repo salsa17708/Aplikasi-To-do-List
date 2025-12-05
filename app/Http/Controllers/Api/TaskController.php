@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -11,7 +12,12 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        // Mengambil semua tugas milik user yang sedang login, diurutkan
+        $tasks = Auth::user()->tasks()
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+        return response()->json($tasks);
     }
 
     /**

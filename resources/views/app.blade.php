@@ -17,5 +17,10 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+
+        <div id="app">
+    {{-- Panggil komponen Vue Anda --}}
+    <task-list></task-list> 
+        </div>
     </body>
 </html>
